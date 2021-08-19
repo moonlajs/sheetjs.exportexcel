@@ -16,11 +16,10 @@ a { text-decoration: none }
 </head>
 <body>
 <![if gt IE 9]>
-<script type="text/javascript" src="http://unpkg.com/xlsx/dist/shim.min.js"></script>
-<script type="text/javascript" src="http://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 
-<script type="text/javascript" src="http://unpkg.com/blob.js@1.0.1/Blob.js"></script>
-<script type="text/javascript" src="http://unpkg.com/file-saver@1.3.3/FileSaver.js"></script>
+<script type="text/javascript" src="xlsx.full.min.js"></script>
+
+
 <![endif]>
 
 <script src="spin.js"></script>
@@ -135,10 +134,12 @@ function xw(data, cb) {
       case 'xlsx': cb(JSON.parse(e.data.d)); break;
     }
   };
+	 //btoa用于创建一个 base-64 编码的字符串（binary to ascii）。
   var arr = rABS ? data : btoa(fixdata(data));
   worker.postMessage({d:arr,b:rABS});
 }
 function handleDrop(e) {
+	//解析excel文件
   e.stopPropagation();
   e.preventDefault();
   //if(pending) return alertify.alert('Please wait until the current file is processed.', function(){});

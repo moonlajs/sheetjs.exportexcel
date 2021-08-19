@@ -17,9 +17,9 @@ a { text-decoration: none }
 <body>
 <![if gt IE 9]>
 <!--<script type="text/javascript" src="http://unpkg.com/xlsx/dist/shim.min.js"></script>-->
-<script type="text/javascript" src="http://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script type="text/javascript" src="xlsx.full.min.js"></script>
 
-<script type="text/javascript" src="http://unpkg.com/blob.js@1.0.1/Blob.js"></script>
+
 <script type="text/javascript" src="FileSaver.mini.js"></script>
 <![endif]>
 
@@ -53,10 +53,11 @@ function doit(type, fn, dl) {
 <script type="text/javascript">
 /* initial table */
 var aoa = [
-	["This",   "is3333",     "a",    "Test"],
-	["வணக்கம்", "สวัสดี", "你好", "가지마"],
-	[1,        2,        3,      4],
-	["Click",  "to",     "edit", "cells"]
+	["1This",   ,    "a",   ],
+	["保单号", "证件类型", "证件号码", "姓名"],
+	['ATIJ02DZ2120R000003E',  '身份证',    '120225198002140464', '夏玉荣'],
+	["ATIJ02DZ2120R000003E",  "身份证",    "120225197010072970", "李连海"],
+	["ATIJ02DZ2120R000003E",  "身份证",    "12022519580128281X", "李保权"]
 ];
 var ws = XLSX.utils.aoa_to_sheet(aoa);
 var html_string = XLSX.utils.sheet_to_html(ws, { id: "data-table", editable: true });
